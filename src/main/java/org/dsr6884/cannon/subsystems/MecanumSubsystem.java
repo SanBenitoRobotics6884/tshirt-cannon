@@ -7,31 +7,25 @@ package org.dsr6884.cannon.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
-public class TankSubsystem extends DriveSubsystem {
+public class MecanumSubsystem extends DriveSubsystem {
   CANSparkMax leftFrontMotor = new CANSparkMax(1, MotorType.kBrushless);
   CANSparkMax leftBackMotor = new CANSparkMax(2, MotorType.kBrushless);
   CANSparkMax rightFrontMotor = new CANSparkMax(3, MotorType.kBrushless);
   CANSparkMax rightBackMotor = new CANSparkMax(4, MotorType.kBrushless);
   
-  MotorControllerGroup leftMotors = new MotorControllerGroup(leftBackMotor, leftFrontMotor);
-  MotorControllerGroup rightMotors = new MotorControllerGroup(rightBackMotor, rightFrontMotor);
-
-  DifferentialDrive myDrive = new DifferentialDrive(leftMotors, rightMotors);
-
-  /** Creates a new TankSubsystem. */
-  public TankSubsystem() {
-    rightMotors.setInverted(true);
-  }
+  MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
+  /** Creates a new MecanumSubsystem. */
+  public MecanumSubsystem() {}
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
 
+  @Override
   public void drive(double xSpeed, double ySpeed, double zRotation) {
-    myDrive.arcadeDrive(xSpeed, zRotation);
+    mecanumDrive.driveCartesian(xSpeed, ySpeed, zRotation);
   }
 }

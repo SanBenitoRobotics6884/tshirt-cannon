@@ -14,4 +14,6 @@ public abstract class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+  public abstract void drive(double xSpeed, double ySpeed, double zRotation);
 }
