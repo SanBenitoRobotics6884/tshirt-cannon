@@ -9,11 +9,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
+import static org.dsr6884.cannon.Constants.Drive.*;
+
 public class MecanumSubsystem extends DriveSubsystem {
-  CANSparkMax leftFrontMotor = new CANSparkMax(1, MotorType.kBrushless);
-  CANSparkMax leftBackMotor = new CANSparkMax(2, MotorType.kBrushless);
-  CANSparkMax rightFrontMotor = new CANSparkMax(3, MotorType.kBrushless);
-  CANSparkMax rightBackMotor = new CANSparkMax(4, MotorType.kBrushless);
+  CANSparkMax leftFrontMotor = new CANSparkMax(FRONT_LEFT_ID, MotorType.kBrushless);
+  CANSparkMax leftBackMotor = new CANSparkMax(BACK_LEFT_ID, MotorType.kBrushless);
+  CANSparkMax rightFrontMotor = new CANSparkMax(FRONT_RIGHT_ID, MotorType.kBrushless);
+  CANSparkMax rightBackMotor = new CANSparkMax(BACK_RIGHT_ID, MotorType.kBrushless);
   
   MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
   /** Creates a new MecanumSubsystem. */

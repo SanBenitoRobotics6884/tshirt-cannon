@@ -10,11 +10,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
+import static org.dsr6884.cannon.Constants.Drive.*;
+
 public class TankSubsystem extends DriveSubsystem {
-  CANSparkMax leftFrontMotor = new CANSparkMax(1, MotorType.kBrushless);
-  CANSparkMax leftBackMotor = new CANSparkMax(2, MotorType.kBrushless);
-  CANSparkMax rightFrontMotor = new CANSparkMax(3, MotorType.kBrushless);
-  CANSparkMax rightBackMotor = new CANSparkMax(4, MotorType.kBrushless);
+  CANSparkMax leftFrontMotor = new CANSparkMax(FRONT_LEFT_ID, MotorType.kBrushless);
+  CANSparkMax leftBackMotor = new CANSparkMax(BACK_LEFT_ID, MotorType.kBrushless);
+  CANSparkMax rightFrontMotor = new CANSparkMax(FRONT_RIGHT_ID, MotorType.kBrushless);
+  CANSparkMax rightBackMotor = new CANSparkMax(BACK_RIGHT_ID, MotorType.kBrushless);
   
   MotorControllerGroup leftMotors = new MotorControllerGroup(leftBackMotor, leftFrontMotor);
   MotorControllerGroup rightMotors = new MotorControllerGroup(rightBackMotor, rightFrontMotor);
