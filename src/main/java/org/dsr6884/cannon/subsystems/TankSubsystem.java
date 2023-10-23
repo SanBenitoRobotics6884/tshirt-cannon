@@ -4,10 +4,13 @@
 
 package org.dsr6884.cannon.subsystems;
 
+import edu.wpi.first.wpilibj.CAN;
+import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+
 public class TankSubsystem extends DriveSubsystem {
   /** Creates a new TankSubsystem. */
   public TankSubsystem() {}
-
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
